@@ -20,3 +20,4 @@ textblob==0.11.1
 tldextract==2.0.2
 dj_database_url
 psycopg2
+whitenoise
