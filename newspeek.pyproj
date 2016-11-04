@@ -11,7 +11,7 @@
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <InterpreterId>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</InterpreterId>
+    <InterpreterId>{7ac22bed-7cdd-4a60-90e8-19eb5221849b}</InterpreterId>
     <InterpreterVersion>3.5</InterpreterVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
@@ -169,12 +169,14 @@
     <Folder Include="newspeek" />
     <Folder Include="newspeek\static" />
     <Folder Include="newspeek\staticfiles" />
+    <Folder Include="newspeek\staticfiles\admin\" />
     <Folder Include="newspeek\staticfiles\admin\css" />
     <Folder Include="newspeek\staticfiles\admin\fonts" />
     <Folder Include="newspeek\staticfiles\admin\img" />
     <Folder Include="newspeek\staticfiles\admin\img\gis" />
     <Folder Include="newspeek\staticfiles\admin\js" />
     <Folder Include="newspeek\staticfiles\admin\js\admin" />
+    <Folder Include="newspeek\staticfiles\admin\js\vendor\" />
     <Folder Include="newspeek\staticfiles\admin\js\vendor\jquery" />
     <Folder Include="newspeek\staticfiles\admin\js\vendor\xregexp" />
     <Folder Include="news\migrations" />
