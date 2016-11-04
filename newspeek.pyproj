@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{800ac404-c095-48e5-b63f-f47071b1d94e}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</InterpreterId>
+    <InterpreterVersion>3.5</InterpreterVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="newspeek\staticfiles\admin\css\base.ba3dc2f88fc5.css" />
+    <Content Include="newspeek\staticfiles\admin\css\base.css" />
+    <Content Include="newspeek\staticfiles\admin\css\changelists.b1b060f73d37.css" />
+    <Content Include="newspeek\staticfiles\admin\css\changelists.css" />
+    <Content Include="newspeek\staticfiles\admin\css\dashboard.4898e2e9983d.css" />
+    <Content Include="newspeek\staticfiles\admin\css\dashboard.css" />
+    <Content Include="newspeek\staticfiles\admin\css\fonts.cc6140298ba7.css" />
+    <Content Include="newspeek\staticfiles\admin\css\fonts.css" />
+    <Content Include="newspeek\staticfiles\admin\css\forms.70b858e61281.css" />
+    <Content Include="newspeek\staticfiles\admin\css\forms.css" />
+    <Content Include="newspeek\staticfiles\admin\css\login.a846c0e2ef65.css" />
+    <Content Include="newspeek\staticfiles\admin\css\login.css" />
+    <Content Include="newspeek\staticfiles\admin\css\rtl.css" />
+    <Content Include="newspeek\staticfiles\admin\css\rtl.e024aaf6df25.css" />
+    <Content Include="newspeek\staticfiles\admin\css\widgets.a7251c097987.css" />
+    <Content Include="newspeek\staticfiles\admin\css\widgets.css" />
+    <Content Include="newspeek\staticfiles\admin\fonts\LICENSE.d273d63619c9.txt" />
+    <Content Include="newspeek\staticfiles\admin\fonts\LICENSE.txt" />
+    <Content Include="newspeek\staticfiles\admin\fonts\README.2c3d0bcdede2.txt" />
+    <Content Include="newspeek\staticfiles\admin\fonts\README.txt" />
+    <Content Include="newspeek\staticfiles\admin\img\calendar-icons.39b290681a8b.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\calendar-icons.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\gis\move_vertex_off.7a23bf31ef8a.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\gis\move_vertex_off.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\gis\move_vertex_on.0047eba25b67.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\gis\move_vertex_on.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-addlink.d519b3bab011.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-addlink.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-alert.034cc7d8a67f.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-alert.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-calendar.ac7aea671bea.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-calendar.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-changelink.18d2fd706348.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-changelink.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-clock.e1d4dfac3f2b.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-clock.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-deletelink.564ef9dc3854.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-deletelink.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-no.439e821418cd.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-no.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-unknown-alt.81536e128bb6.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-unknown-alt.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-unknown.a18cb4398978.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-unknown.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-yes.d2f9f035226a.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\icon-yes.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\inline-delete.fec1b761f254.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\inline-delete.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\README.837277fa1908.txt" />
+    <Content Include="newspeek\staticfiles\admin\img\README.txt" />
+    <Content Include="newspeek\staticfiles\admin\img\search.7cf54ff789c6.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\search.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\selector-icons.b4555096cea2.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\selector-icons.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\sorting-icons.3a097b59f104.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\sorting-icons.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\tooltag-add.e59d620a9742.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\tooltag-add.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\tooltag-arrowright.bbfb788a849e.svg" />
+    <Content Include="newspeek\staticfiles\admin\img\tooltag-arrowright.svg" />
+    <Content Include="newspeek\staticfiles\admin\js\actions.32861b6cbdf9.js" />
+    <Content Include="newspeek\staticfiles\admin\js\actions.js" />
+    <Content Include="newspeek\staticfiles\admin\js\actions.min.f51f04edab28.js" />
+    <Content Include="newspeek\staticfiles\admin\js\actions.min.js" />
+    <Content Include="newspeek\staticfiles\admin\js\admin\DateTimeShortcuts.1536fb6bea1d.js" />
+    <Content Include="newspeek\staticfiles\admin\js\admin\DateTimeShortcuts.js" />
+    <Content Include="newspeek\staticfiles\admin\js\admin\RelatedObjectLookups.183db436487a.js" />
+    <Content Include="newspeek\staticfiles\admin\js\admin\RelatedObjectLookups.js" />
+    <Content Include="newspeek\staticfiles\admin\js\calendar.9ac94d055fbd.js" />
+    <Content Include="newspeek\staticfiles\admin\js\calendar.js" />
+    <Content Include="newspeek\staticfiles\admin\js\cancel.1d69cba4b4bf.js" />
+    <Content Include="newspeek\staticfiles\admin\js\cancel.js" />
+    <Content Include="newspeek\staticfiles\admin\js\change_form.d224f77c6b61.js" />
+    <Content Include="newspeek\staticfiles\admin\js\change_form.js" />
+    <Content Include="newspeek\staticfiles\admin\js\collapse.17d715df2104.js" />
+    <Content Include="newspeek\staticfiles\admin\js\collapse.js" />
+    <Content Include="newspeek\staticfiles\admin\js\collapse.min.dc930adb2821.js" />
+    <Content Include="newspeek\staticfiles\admin\js\collapse.min.js" />
+    <Content Include="newspeek\staticfiles\admin\js\core.fd861d43f0f5.js" />
+    <Content Include="newspeek\staticfiles\admin\js\core.js" />
+    <Content Include="newspeek\staticfiles\admin\js\inlines.17981b4df24a.js" />
+    <Content Include="newspeek\staticfiles\admin\js\inlines.js" />
+    <Content Include="newspeek\staticfiles\admin\js\inlines.min.8ef8b2379896.js" />
+    <Content Include="newspeek\staticfiles\admin\js\inlines.min.js" />
+    <Content Include="newspeek\staticfiles\admin\js\jquery.init.95b62fa19378.js" />
+    <Content Include="newspeek\staticfiles\admin\js\jquery.init.js" />
+    <Content Include="newspeek\staticfiles\admin\js\popup_response.6ce3197f8fc8.js" />
+    <Content Include="newspeek\staticfiles\admin\js\popup_response.js" />
+    <Content Include="newspeek\staticfiles\admin\js\prepopulate.ff9208865444.js" />
+    <Content Include="newspeek\staticfiles\admin\js\prepopulate.js" />
+    <Content Include="newspeek\staticfiles\admin\js\prepopulate.min.f4057ebb9b62.js" />
+    <Content Include="newspeek\staticfiles\admin\js\prepopulate.min.js" />
+    <Content Include="newspeek\staticfiles\admin\js\prepopulate_init.0d3b53c37074.js" />
+    <Content Include="newspeek\staticfiles\admin\js\prepopulate_init.js" />
+    <Content Include="newspeek\staticfiles\admin\js\SelectBox.b49f008d186b.js" />
+    <Content Include="newspeek\staticfiles\admin\js\SelectBox.js" />
+    <Content Include="newspeek\staticfiles\admin\js\SelectFilter2.17009b6d4428.js" />
+    <Content Include="newspeek\staticfiles\admin\js\SelectFilter2.js" />
+    <Content Include="newspeek\staticfiles\admin\js\timeparse.51258861a46a.js" />
+    <Content Include="newspeek\staticfiles\admin\js\timeparse.js" />
+    <Content Include="newspeek\staticfiles\admin\js\urlify.411bc3bb651c.js" />
+    <Content Include="newspeek\staticfiles\admin\js\urlify.js" />
+    <Content Include="newspeek\staticfiles\admin\js\vendor\jquery\jquery.aacc43d6f308.js" />
+    <Content Include="newspeek\staticfiles\admin\js\vendor\jquery\jquery.js" />
+    <Content Include="newspeek\staticfiles\admin\js\vendor\jquery\jquery.min.33cabfa15c10.js" />
+    <Content Include="newspeek\staticfiles\admin\js\vendor\jquery\jquery.min.js" />
+    <Content Include="newspeek\staticfiles\admin\js\vendor\jquery\LICENSE-JQUERY.a158210a2737.txt" />
+    <Content Include="newspeek\staticfiles\admin\js\vendor\jquery\LICENSE-JQUERY.txt" />
+    <Content Include="newspeek\staticfiles\admin\js\vendor\xregexp\LICENSE-XREGEXP.d64cecf4f157.txt" />
+    <Content Include="newspeek\staticfiles\admin\js\vendor\xregexp\LICENSE-XREGEXP.txt" />
+    <Content Include="newspeek\staticfiles\admin\js\vendor\xregexp\xregexp.1865b1cf5085.js" />
+    <Content Include="newspeek\staticfiles\admin\js\vendor\xregexp\xregexp.js" />
+    <Content Include="newspeek\staticfiles\admin\js\vendor\xregexp\xregexp.min.c95393b8ca4d.js" />
+    <Content Include="newspeek\staticfiles\admin\js\vendor\xregexp\xregexp.min.js" />
+    <Content Include="newspeek\staticfiles\humans.d41d8cd98f00.txt" />
+    <Content Include="newspeek\staticfiles\humans.txt" />
+    <Content Include="newspeek\staticfiles\lang-logo.019c8743b7cf.png" />
+    <Content Include="newspeek\staticfiles\lang-logo.png" />
+    <Content Include="newspeek\static\humans.txt" />
+    <Content Include="news\static\lang-logo.png" />
+    <Content Include="news\templates\base.html" />
+    <Content Include="news\templates\db.html" />
+    <Content Include="news\templates\index.html" />
+    <Content Include="requirements.txt" />
+    <Content Include="runtime.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="manage.py" />
+    <Compile Include="newspeek\settings.py" />
+    <Compile Include="newspeek\urls.py" />
+    <Compile Include="newspeek\wsgi.py" />
+    <Compile Include="newspeek\__init__.py" />
+    <Compile Include="news\admin.py" />
+    <Compile Include="news\migrations\0001_initial.py" />
+    <Compile Include="news\migrations\__init__.py" />
+    <Compile Include="news\models.py" />
+    <Compile Include="news\modules\articlefinder.py" />
+    <Compile Include="news\modules\context.py" />
+    <Compile Include="news\modules\__init__.py" />
+    <Compile Include="news\tests.py" />
+    <Compile Include="news\views.py" />
+    <Compile Include="news\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="news" />
+    <Folder Include="newspeek" />
+    <Folder Include="newspeek\static" />
+    <Folder Include="newspeek\staticfiles" />
+    <Folder Include="newspeek\staticfiles\admin\css" />
+    <Folder Include="newspeek\staticfiles\admin\fonts" />
+    <Folder Include="newspeek\staticfiles\admin\img" />
+    <Folder Include="newspeek\staticfiles\admin\img\gis" />
+    <Folder Include="newspeek\staticfiles\admin\js" />
+    <Folder Include="newspeek\staticfiles\admin\js\admin" />
+    <Folder Include="newspeek\staticfiles\admin\js\vendor\jquery" />
+    <Folder Include="newspeek\staticfiles\admin\js\vendor\xregexp" />
+    <Folder Include="news\migrations" />
+    <Folder Include="news\modules" />
+    <Folder Include="news\static" />
+    <Folder Include="news\templates" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>{7ac22bed-7cdd-4a60-90e8-19eb5221849b}</Id>
+      <Description>env (Python 3.5)</Description>
+      <BaseInterpreter>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</BaseInterpreter>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <LibraryPath>Lib\</LibraryPath>
+      <Version>3.5</Version>
+      <Architecture>x86</Architecture>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+    </Interpreter>
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
