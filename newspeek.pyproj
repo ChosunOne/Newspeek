@@ -144,6 +144,7 @@
     <Content Include="news\templates\base.html" />
     <Content Include="news\templates\db.html" />
     <Content Include="news\templates\index.html" />
+    <Content Include="news\templates\newpeek.PNG" />
     <Content Include="requirements.txt" />
     <Content Include="runtime.txt" />
   </ItemGroup>
