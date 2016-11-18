@@ -11,6 +11,4 @@ import news.views
 
 urlpatterns = [
     url(r'^$', news.views.index, name='index'),
-    url(r'^db', news.views.db, name='db'),
-    url(r'^admin/', include(admin.site.urls)),
 ]
