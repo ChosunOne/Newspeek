@@ -5,159 +5,148 @@ import google
 import requests
 
 
-looping = True
-initialURL = None
-prevQuery = None
-question1 = None
 
-#Get text of initial article
-while(looping):
-	if initialURL is None:
-		initialURL = raw_input('Hello! Please enter the URL you would like to chat about: ')
+class ArticleFinder: 
+	def __init__(self, initialURL, followUpQuery):
+		self.initialURL = initialURL
+		self.prevQuery = None
+		self.query = followUpQuery
 
-	article = Article(initialURL)
-	article.download()
-	article.parse()
+		article = Article(self.initialURL)
+		article.download()
+		article.parse()
 
-	#Do NLP
+		blob = TextBlob(article.text)
+		keywords = [x[0] for x in blob.tags if "NNP" in x[1] or "NN" in x[1] or "CD" in x[1]]
+		nounPhrases = blob.noun_phrases
+		wordfrequencies = []
 
-	blob = TextBlob(article.text)
-	keywords = [x[0] for x in blob.tags if "NNP" in x[1] or "NN" in x[1] or "CD" in x[1]]
-	nounPhrases = blob.noun_phrases
-	wordfrequencies = []
+		for keyword in nounPhrases:
+			wordfrequencies.append(blob.words.count(keyword))
 
-	for keyword in nounPhrases:
-		wordfrequencies.append(blob.words.count(keyword))
+		listofindices = sorted(xrange(len(wordfrequencies)), key=lambda ix: wordfrequencies[ix])
 
-	listofindices = sorted(xrange(len(wordfrequencies)), key=lambda ix: wordfrequencies[ix])
-	
-	searchword1Index = listofindices[-1]
-	searchword2Index = listofindices[-2]
+		searchword1Index = listofindices[-1]
+		searchword2Index = listofindices[-2]
 
-	searchword1 = nounPhrases[searchword1Index]
-	searchword2 = nounPhrases[searchword2Index]
+		searchword1 = nounPhrases[searchword1Index]
+		searchword2 = nounPhrases[searchword2Index]
 
-	#Search Google for Query 
+		#Search Google for Query 
 
-	question = raw_input ('Follow-up Query: ')
-	
-	auxiliaryVerbs = ['do', 'will', 'did', 'Do', 'Will', 'Did']
-	questionWords = ['who', 'what', 'when', 'where', 'why', 'Who', 'What', 'When', 'Where', 'Why', 'Will', 'will']
-	toBeVerbs = ['Am', 'Are', 'Was', 'Were', 'am', 'are', 'was', 'were']
+		question = self.query
 
-	question = question.split()
-	
-	questionWord = None
-	auxiliaryVerb = None
-	toBeVerb = None
-	subject = None
-	mainVerb = None
+		auxiliaryVerbs = ['do', 'will', 'did', 'Do', 'Will', 'Did']
+		questionWords = ['who', 'what', 'when', 'where', 'why', 'Who', 'What', 'When', 'Where', 'Why', 'Will', 'will']
+		toBeVerbs = ['Am', 'Are', 'Was', 'Were', 'am', 'are', 'was', 'were']
 
-	if len(question) >= 5: 
+		question = question.split()
 
-		if question[0] in auxiliaryVerbs: 
-			auxiliaryVerb = question[0]
-			subject = question[1]
-			mainVerb = question[2]
-			modulator = question[3:]
+		questionWord = None
+		auxiliaryVerb = None
+		toBeVerb = None
+		subject = None
+		mainVerb = None
 
-			question[1] = searchword1
+		if len(question) >= 5: 
 
-			question1 = " ".join(question)
-			prevQuery = question1
+			if question[0] in auxiliaryVerbs: 
+				auxiliaryVerb = question[0]
+				subject = question[1]
+				mainVerb = question[2]
+				modulator = question[3:]
 
-		elif question[0] in questionWords and question[1] in auxiliaryVerbs:
-			questionWord = question[0]
-			auxiliaryVerb = question[1]
-			subject = question[2]
-			mainVerb = question[3]
-			modulator = question[4:]
+				question[1] = searchword1
 
-			question[2] = searchword1
-			
+				self.query = " ".join(question)
+				prevQuery = self.query
 
-			question1 = " ".join(question)
-			prevQuery = question1
+			elif question[0] in questionWords and question[1] in auxiliaryVerbs:
+				questionWord = question[0]
+				auxiliaryVerb = question[1]
+				subject = question[2]
+				mainVerb = question[3]
+				modulator = question[4:]
+
+				question[2] = self.query
+				
+
+				self.query = " ".join(question)
+				prevQuery = self.query
 
 
-		elif question[0] in toBeVerbs:
-			mainVerb = question[0]
-			subject = question[1]
-			modulator = question[2:]
+			elif question[0] in toBeVerbs:
+				mainVerb = question[0]
+				subject = question[1]
+				modulator = question[2:]
 
-			question[1] = searchword1
+				question[1] = searchword1
 
-			question1 = " ".join(question)
-			prevQuery = question1
+				self.query = " ".join(question)
+				prevQuery = self.query
 
-		elif question[0] in questionWords and question[1] in toBeVerbs:
-			questionWord = question[0]
-			toBeVerb  = question[1]
-			subject = question[2]
-			modulator = question[3:]
+			elif question[0] in questionWords and question[1] in toBeVerbs:
+				questionWord = question[0]
+				toBeVerb  = question[1]
+				subject = question[2]
+				modulator = question[3:]
 
-			question[2] = searchword1
+				question[2] = searchword1
 
-			question1 = " ".join(question)
-			prevQuery = question1
-
-
-	elif len(question) == 4: 
-
-		if question[0] in auxiliaryVerbs: 
-			auxiliaryVerb = question[0]
-			subject = question[1]
-			mainVerb = question[2]
-			modulator = question[3:]
-
-			question[1] = searchword1
-
-			question1 =  " ".join(question)
-			prevQuery = question1
+				self.query = " ".join(question)
+				prevQuery = self.query
 
 
-		elif question[0] in toBeVerbs:
-			mainVerb = question[0]
-			subject = question[1]
-			modulator = question[2:]
+		elif len(question) == 4: 
 
-			question[1] = searchword1
+			if question[0] in auxiliaryVerbs: 
+				auxiliaryVerb = question[0]
+				subject = question[1]
+				mainVerb = question[2]
+				modulator = question[3:]
 
-			question1 =  " ".join(question)
-			prevQuery = question1
+				question[1] = searchword1
 
-
-		elif question[0] in questionWords and question[1] in toBeVerbs:
-			questionWord = question[0]
-			toBeVerb  = question[1]
-			subject = question[2]
-			modulator = question[3:]
-
-			question[2] = searchword1
-
-			question1 = " ".join(question)
-			prevQuery = question1
-
-			
-	else: 
-
-		question1 = prevQuery
+				self.query =  " ".join(question)
+				prevQuery = self.query
 
 
-	response = google.search(question1, tld='com', lang='en', num=5, start=0, stop=5)
+			elif question[0] in toBeVerbs:
+				mainVerb = question[0]
+				subject = question[1]
+				modulator = question[2:]
 
-	resultArray = []
-	for result in response: 
-		resultArray.append(str(result))
+				question[1] = searchword1
 
-	responseArticle = Article(resultArray[0])
-	responseArticle.download()
-	responseArticle.parse()
+				self.query =  " ".join(question)
+				prevQuery = self.query
 
-	done = raw_input('Done chatting?')
-	if done == "yes" or done == "Yes":
-		looping = False
-	else: 
-		looping = True
 
+			elif question[0] in questionWords and question[1] in toBeVerbs:
+				questionWord = question[0]
+				toBeVerb  = question[1]
+				subject = question[2]
+				modulator = question[3:]
+
+				question[2] = searchword1
+
+				self.query = " ".join(question)
+				prevQuery = self.query
+
+				
+		else: 
+
+			self.query = prevQuery
+
+		response = google.search(self.query, tld='com', lang='en', num=5, start=0, stop=5)
+
+		resultArray = []
+		for result in response: 
+			resultArray.append(str(result))
+
+		responseArticle = Article(resultArray[0])
+		responseArticle.download()
+		responseArticle.parse()
+
+		return responseArticle.text
 
