@@ -19,8 +19,6 @@ while(looping):
 	article.download()
 	article.parse()
 
-	print article.text
-
 	#Do NLP
 
 	blob = TextBlob(article.text)
@@ -145,7 +143,6 @@ while(looping):
 
 		question1 = prevQuery
 
-	print question1
 
 	response = google.search(question1, tld='com', lang='en', num=5, start=0, stop=5)
 
@@ -156,9 +153,6 @@ while(looping):
 	responseArticle = Article(resultArray[0])
 	responseArticle.download()
 	responseArticle.parse()
-
-	print responseArticle.text
-
 
 	done = raw_input('Done chatting?')
 	if done == "yes" or done == "Yes":
