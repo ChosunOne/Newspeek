@@ -49,33 +49,43 @@ class ArticleFinder:
 		mainVerb = None
 
 		if len(question) >= 5: 
-
 			if question[0] in auxiliaryVerbs: 
-				auxiliaryVerb = question[0]
-				subject = question[1]
-				mainVerb = question[2]
-				modulator = question[3:]
+				if question[1] == "else":
+					auxiliaryVerb = question[0]
+					subject = question[1]
+					mainVerb = question[2]
+					modulator = question[3:]
 
-				question[1] = searchword1
+					question[1] = searchword1
+
+					question.append("-" + searchword2)
+
+				else:
+					auxiliaryVerb = question[0]
+					subject = question[1]
+					mainVerb = question[2]
+					modulator = question[3:]
+
+					question[1] = searchword1
 
 				self.query = " ".join(question)
-				prevQuery = self.query
+				
 
-			elif question[0] in questionWords and question[1] in auxiliaryVerbs:
+			if question[0] in questionWords and question[1] in auxiliaryVerbs:
 				questionWord = question[0]
 				auxiliaryVerb = question[1]
 				subject = question[2]
 				mainVerb = question[3]
 				modulator = question[4:]
 
-				question[2] = self.query
+				question[2] = searchword1
 				
 
 				self.query = " ".join(question)
-				prevQuery = self.query
+				
 
 
-			elif question[0] in toBeVerbs:
+			if question[0] in toBeVerbs:
 				mainVerb = question[0]
 				subject = question[1]
 				modulator = question[2:]
@@ -83,9 +93,9 @@ class ArticleFinder:
 				question[1] = searchword1
 
 				self.query = " ".join(question)
-				prevQuery = self.query
+				
 
-			elif question[0] in questionWords and question[1] in toBeVerbs:
+			if question[0] in questionWords and question[1] in toBeVerbs:
 				questionWord = question[0]
 				toBeVerb  = question[1]
 				subject = question[2]
@@ -94,24 +104,38 @@ class ArticleFinder:
 				question[2] = searchword1
 
 				self.query = " ".join(question)
-				prevQuery = self.query
+				
+
+	        else: 
+	            question.append(searchword1)
+	        #    question.append(searchword2)
+	            self.query = " ".join(question)
+	            
 
 
-		elif len(question) == 4: 
-
+		if len(question) == 4: 
 			if question[0] in auxiliaryVerbs: 
-				auxiliaryVerb = question[0]
-				subject = question[1]
-				mainVerb = question[2]
-				modulator = question[3:]
+				if question[1] == "else":
+					auxiliaryVerb = question[0]
+					subject = question[1]
+					modulator = question[2:]
 
-				question[1] = searchword1
+					question[1] = searchword1
 
-				self.query =  " ".join(question)
-				prevQuery = self.query
+					question.append("-" + searchword2)
+
+				else:
+					auxiliaryVerb = question[0]
+					subject = question[1]
+					modulator = question[2:]
+
+					question[1] = searchword1
+
+				self.query = " ".join(question)
+				
 
 
-			elif question[0] in toBeVerbs:
+			if question[0] in toBeVerbs:
 				mainVerb = question[0]
 				subject = question[1]
 				modulator = question[2:]
@@ -119,10 +143,10 @@ class ArticleFinder:
 				question[1] = searchword1
 
 				self.query =  " ".join(question)
-				prevQuery = self.query
+				
 
 
-			elif question[0] in questionWords and question[1] in toBeVerbs:
+			if question[0] in questionWords and question[1] in toBeVerbs:
 				questionWord = question[0]
 				toBeVerb  = question[1]
 				subject = question[2]
@@ -131,12 +155,19 @@ class ArticleFinder:
 				question[2] = searchword1
 
 				self.query = " ".join(question)
-				prevQuery = self.query
-
 				
-		else: 
 
-			self.query = prevQuery
+	        else:
+	            question.append(searchword1)
+	        #    question.append(searchword2)
+	            self.query = " ".join(question)
+	            	
+
+		if ((len(question) >= 0) and (len(question) < 4)): 
+			question.append(searchword1)
+			question.append(searchword2)
+			self.query = " ".join(question)
+			
 
 		response = google.search(self.query, tld='com', lang='en', num=5, start=0, stop=5)
 
