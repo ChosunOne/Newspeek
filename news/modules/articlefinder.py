@@ -3,7 +3,6 @@ from textblob import TextBlob
 import os
 import google
 import requests
-import unirest
 
 
 class ArticleFinder: 
