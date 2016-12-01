@@ -3,7 +3,7 @@ from textblob import TextBlob
 import os
 import google
 import requests
-
+import unirest
 
 
 class ArticleFinder: 
@@ -19,18 +19,20 @@ class ArticleFinder:
 		blob = TextBlob(article.text)
 		keywords = [x[0] for x in blob.tags if "NNP" in x[1] or "NN" in x[1] or "CD" in x[1]]
 		nounPhrases = blob.noun_phrases
+		uniqueNP = []
+		[uniqueNP.append(item) for item in nounPhrases if item not in uniqueNP]
 		wordfrequencies = []
 
-		for keyword in nounPhrases:
+		for keyword in uniqueNP:
 			wordfrequencies.append(blob.words.count(keyword))
 
 		listofindices = sorted(xrange(len(wordfrequencies)), key=lambda ix: wordfrequencies[ix])
-
+		
 		searchword1Index = listofindices[-1]
 		searchword2Index = listofindices[-2]
 
-		searchword1 = nounPhrases[searchword1Index]
-		searchword2 = nounPhrases[searchword2Index]
+		searchword1 = uniqueNP[searchword1Index]
+		searchword2 = uniqueNP[searchword2Index]
 
 		#Search Google for Query 
 
