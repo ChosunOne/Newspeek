@@ -1,29 +1,69 @@
 <html>
 <head>
-    <script src="{{ STATIC_URL}}/scripts/index.js" ></script>
     <script src="https://code.jquery.com/jquery-3.1.1.js"
             integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
             crossorigin="anonymous"></script>
 </head>
+
 <body>
     <img src="http://i.imgur.com/uvQGLlt.png" alt="Mountain View">
-    <form action="home.html" method="post">
-        <fieldset>
-            <legend>Question Search:</legend>
-            Article Link:<br>
-            <input type="text" name="article" value="www.google.com"><br>
-            Question:<br>
-            <input type="text" name="question" value="How old is Trump?"><br><br>
-            <input type="submit" value="Submit">
-        </fieldset>
-    </form>
+
+    <fieldset>
+        <legend>Question Search:</legend>
+        Article Link:<br>
+        <input type="text" name="article" value="http://cnn.com/2014/03/31/world/asia/north-korea-live-fire-exchange/" id="article1"> <input type="button" value="Load Article" onclick="loadArticle()" /><br>
+        Question:<br>
+        <input type="text" name="question" value="How old is Trump?" id="question1" > <br><br>
+
+        <input type="button" value="Load Answer" onclick="loadAnswer()" />
+
+    </fieldset>
 
 
+    <img src="http://i.imgur.com/H5gX3zp.png" alt="Mountain View">
     <div id="mydiv">
-        <iframe id="frame" src="" width="100%" height="300"></iframe>
+        <iframe id="frame1" src="https" width="100%" height="500"></iframe>
     </div>
-    <button id="button">Load</button>
+
+    <img src="http://i.imgur.com/pLqUHab.png" alt="Mountain View">
+    <p>
+        <input type='button' name='Next' value='Next Page'
+               onclick='window.location.replace("http://timecrystal.co.uk/");' />
+    </p>
 
 
+
+
+
+    <script>
+        $(document).ready(function () {
+            $("#button").click(function () {
+                $("#frame").attr("src", "http://www.google.com/");
+            });
+        });
+
+        function loadArticle() {
+            var el = document.getElementById('frame1');
+            el.src = document.getElementById("article1").value;
+            alert("Article Loaded!");
+        }
+
+        
+        function loadAnswer() {
+            $.ajax({
+                type: "POST",
+                url: "index.html",
+                data: {"article": $("#article1").val(), "question":$("#question1").val() },
+                success: success,
+                dataType: dataType
+            });
+        }
+
+        function success(data) {
+            var el = document.getElementById('frame1');
+            el.src = data["url"];
+            alert("ANSWER found!");
+        }
+    </script>
 </body>
 </html>

@@ -140,10 +140,13 @@
     <Content Include="newspeek\staticfiles\lang-logo.019c8743b7cf.png" />
     <Content Include="newspeek\staticfiles\lang-logo.png" />
     <Content Include="newspeek\static\humans.txt" />
+    <Content Include="news\scripts\index.js" />
+    <Content Include="news\static\scripts\index.js" />
     <Content Include="news\static\lang-logo.png" />
     <Content Include="news\templates\base.html" />
     <Content Include="news\templates\db.html" />
     <Content Include="news\templates\index.html" />
+    <Content Include="news\templates\index.js" />
     <Content Include="news\templates\newpeek.PNG" />
     <Content Include="requirements.txt" />
     <Content Include="runtime.txt" />
@@ -182,6 +185,8 @@
     <Folder Include="newspeek\staticfiles\admin\js\vendor\xregexp" />
     <Folder Include="news\migrations" />
     <Folder Include="news\modules" />
+    <Folder Include="news\scripts\" />
+    <Folder Include="news\static\scripts\" />
     <Folder Include="news\static" />
     <Folder Include="news\templates" />
   </ItemGroup>

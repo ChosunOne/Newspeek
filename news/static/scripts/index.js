@@ -2,5 +2,11 @@
     $("#button").click(function () {
         $("#frame").attr("src", "http://www.google.com/");
     });
-    $("#form2 input").val('Hello World!');
 });
+
+function loadArticle() {
+    var el = document.getElementById('frame1');
+    el.src = document.getElementById("article1").value;
+    alert("I did something!");
+}
+
