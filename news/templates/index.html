@@ -11,9 +11,9 @@
     <fieldset>
         <legend>Question Search:</legend>
         Article Link:<br>
-        <input type="text" name="article" value="http://cnn.com/2014/03/31/world/asia/north-korea-live-fire-exchange/" id="article1"> <input type="button" value="Load Article" onclick="loadArticle()" /><br>
+        <input type="text" name="article" value="http://www.cnn.com/2016/11/30/politics/donald-trump-carrier-jobs-analysis/" id="article1"> <input type="button" value="Load Article" onclick="loadArticle()" /><br>
         Question:<br>
-        <input type="text" name="question" value="How old is Trump?" id="question1" > <br><br>
+        <input type="text" name="question" value="When will he take office?" id="question1" > <br><br>
 
         <input type="button" value="Load Answer" onclick="loadAnswer()" />
 
@@ -50,17 +50,18 @@
 
         
         function loadAnswer() {
-            alert("Loading Answer!");
             $.ajax({
                 type: "POST",
                 url: "index.html",
                 data: {"article": $("#article1").val(), "question":$("#question1").val() },
                 success: success,
-                dataType: dataType
+                dataType: typeof data
+                
             });
         }
 
         function success(data) {
+            alert("Loaded Answer!");
             var el = document.getElementById('frame1');
             el.src = data["url"];
             alert("ANSWER found!");
