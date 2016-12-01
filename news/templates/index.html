@@ -45,11 +45,12 @@
         function loadArticle() {
             var el = document.getElementById('frame1');
             el.src = document.getElementById("article1").value;
-            alert("Article Loaded!");
+            alert("Load Article!");
         }
 
         
         function loadAnswer() {
+            alert("Loading Answer!");
             $.ajax({
                 type: "POST",
                 url: "index.html",
