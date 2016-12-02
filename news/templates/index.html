@@ -22,13 +22,9 @@
 
     <img src="http://i.imgur.com/H5gX3zp.png" alt="Mountain View">
     <div id="mydiv">
-        <iframe id="frame1" src="http://www.wikipedia.org/" width="100%" height="400"></iframe>
+        <iframe id="frame1" src="http://www.wikipedia.org/" width="100%" height="800"></iframe>
     </div>
     <br>
-    <img src="http://i.imgur.com/pLqUHab.png" alt="Mountain View">
-    <div id="mydiv">
-        <iframe id="frame2" src="https://www.wolframalpha.com/" width="100%" height="300"></iframe>
-    </div>
 
 
 
@@ -44,7 +40,6 @@
         function loadArticle() {
             var el = document.getElementById('frame1');
             el.src = document.getElementById("article1").value;
-            alert("Load Article!");
         }
 
         
@@ -61,6 +56,7 @@
                 error: function(error){
                     console.log("received data")
                     $('#frame1').attr('src', error.responseText)
+                    $('#article1').val(error.responseText)
                 },
                 dataType: typeof data
             }).done(success);
@@ -70,6 +66,7 @@
         function success(data) {
             console.log("received data")
             $('#frame1').attr('src', data)
+            $('#article1').val(data)
         }
     </script>
 </body>
