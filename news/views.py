@@ -8,9 +8,15 @@ def index(request):
     if request.method == 'GET':
         return render(request, 'index.html')
     elif request.method == 'POST':
-        article = ArticleFinder(request.data["article"], request.data["question"])
+        article = ArticleFinder(request.POST.get("article"), request.POST.get("question"))  
         return render(request, 'index.html', {"url": article.finalURL})
 
+def post(request):
+    if request.method == 'GET':
+        return render(request, 'index.html')
+    elif request.method == 'POST':
+        article = ArticleFinder(request["article"], request["question"])
+        return render(request, 'index.html', {"url": article.finalURL})
 
 #def db(request):
 

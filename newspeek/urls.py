@@ -12,4 +12,5 @@ import news.views
 
 urlpatterns = [
     url(r'^$', news.views.index, name='index'),
+    url(r'^/post', news.views.post, name='post'),    
 ]
