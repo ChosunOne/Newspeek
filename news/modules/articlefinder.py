@@ -25,7 +25,7 @@ class ArticleFinder:
         for keyword in uniqueNP:
             wordfrequencies.append(blob.words.count(keyword))
 
-        listofindices = sorted(xrange(len(wordfrequencies)), key=lambda ix: wordfrequencies[ix])
+        listofindices = sorted(range(len(wordfrequencies)), key=lambda ix: wordfrequencies[ix])
         
         searchword1Index = listofindices[-1]
         searchword2Index = listofindices[-2]
@@ -178,5 +178,5 @@ class ArticleFinder:
         responseArticle.parse()
 
         self.responseArticleText = responseArticle.text
-        self.finalURL = responseArticle.source_url()
+        self.finalURL = resultArray[0]
 
